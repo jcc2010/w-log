@@ -1,0 +1,36 @@
+Requirements:
+PHP 5.xx
+MySQL 5.xx with administrator privileges
+
+Install:
+
+1) Extract contents of package.
+2) Edit w-log/index.php for MySQL connect information at the top:
+   MARKED WITH SET HERE
+3) Open w-log/index.php, this will turn the mysql general log on.
+4) Load any page on your local development environment which is connected to the same host as w-log
+5) Click on "display log" to see the most recent results of a page load.  The log will be emptied
+   on each view.
+6) Truncate and turn off via the link provided.  You will want to turn off the query log during
+   normal operation.
+7) To re-enable your slow query log, just click on enable log.
+
+Please Note, you need to have adequate permissions for to administer your MySQL database for w-log
+to work.
+
+w-log only looks at SELECT queries that are the result of normal page loads.  It does filter many
+different queries out of view for a better look at the page load.  For a complete list
+of your query log, you can query within phpMyAdmin using:
+
+SELECT * FROM mysql.general_log
+
+This will show you all queries.  w-log does truncate on each view, so refrain from displaying
+while searching full results.
+
+Further information about EXPLAIN can be found here:
+
+* http://dev.mysql.com/doc/refman/5.0/en/using-explain.html
+
+
+This script uses blueprint.css.  Please read the credits and documentation provided in
+styles/blueprint
